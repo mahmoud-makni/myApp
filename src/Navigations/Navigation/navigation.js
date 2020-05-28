@@ -8,8 +8,9 @@ import Login from '../../View/Login/Login';
 import Inscription from '../../View/Inscription/Inscription';
 import MyTabs from '../TB/Tab';
 import AllArticles from '../../data/flatListData'
-import { View, Text, StyleSheet,Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import { color } from 'react-native-reanimated';
+import QRCode from 'react-native-qrcode-svg';
 
 const DetailsComponent = (props) => {
   console.log('DetailsComponent PROPS.route.params: ', props.route.params)
@@ -24,12 +25,12 @@ const DetailsComponent = (props) => {
 
 
 
-<View style={styles.container}>
-    <View style={styles.header}>
-    </View>
-    <Image style={styles.avatar} source={{ uri:relatedArticle.imageUrl }}/>
-    <View style={styles.body}>
-  
+    <View style={styles.container}>
+      <View style={styles.header}>
+      </View>
+      <Image style={styles.avatar} source={{ uri: relatedArticle.imageUrl }} />
+      <View style={styles.body}>
+
         <Text style={styles.name1}> Nom d'article : </Text>
 
         <Text style={styles.name}> {relatedArticle.name}</Text>
@@ -43,82 +44,93 @@ const DetailsComponent = (props) => {
         <Text style={styles.prix}>{relatedArticle.PrixClient}</Text>
 
         <Text style={styles.taille1}> Taille disponible : </Text>
-       
+
         <Text style={styles.taille}> {relatedArticle.Taille}</Text>
-     
+
         <Text style={styles.CODE}> CODE-QR </Text>
+        <View style={{marginTop: -80, alignItems: 'center'}}>
+          <QRCode
+            value={relatedArticle.key}
+          />
+        </View>
+      </View>
     </View>
-  </View>
-);
+  );
 }
 const styles = StyleSheet.create({
-avatar: {
-width: 415,
-height: 250,
-borderWidth: 4,
-borderColor: "white",
-marginBottom: 10,
-alignSelf: 'center',
-},
-name: {
-fontSize: 14,
-color: "#FFFFFF",
-fontWeight: '600',
-},
-body: {
-marginTop: 40,
-},
+  avatar: {
+    width: 415,
+    height: 250,
+    borderWidth: 4,
+    borderColor: "white",
+    marginBottom: 10,
+    alignSelf: 'center',
+  },
+  name: {
+    fontSize: 14,
+    color: "#FFFFFF",
+    fontWeight: '600',
+  },
+  body: {
+    marginTop: 40,
+  },
 
-name: {
-fontSize: 16,
-color: "#696969",
-fontWeight: "600",
-left:140,
-top:-55
-},
-description: {
-fontSize: 16,
-color: "#696969",
-marginTop: 10,
-left:140,
-top:-75
-},
-prix:{
-  fontSize:20,
-  left:140,
-  top:-87,
-  color:'#02FC3A',
-},
-name1:{
-  fontSize: 18,
-  top:-30
-},
-description1:{
-  fontSize: 18,
-  top:-40
-},
-prix1:{
-  fontSize: 18,
-  top:-60,
+  name: {
+    fontSize: 16,
+    color: "#696969",
+    fontWeight: "600",
+    left: 140,
+    top: -55
+  },
+  description: {
+    fontSize: 16,
+    color: "#696969",
+    marginTop: 10,
+    left: 140,
+    top: -75
+  },
+  prix: {
+    fontSize: 20,
+    left: 140,
+    top: -87,
+    color: '#02FC3A',
+  },
+  name1: {
+    fontSize: 18,
+    top: -30
+  },
+  description1: {
+    fontSize: 18,
+    top: -40
+  },
+  prix1: {
+    fontSize: 18,
+    top: -60,
 
-},
-taille1:{
-  fontSize: 18,
-  top:-80,
-},
-taille:{
-  fontSize:16,
-  left:170,
-  top:-104,
-  color: "#696969",
-},
-CODE:{
-  fontSize: 20,
-  left:150,
-  top:-90,
-  color:'red'
+  },
+  taille1: {
+    fontSize: 18,
+    top: -80,
+  },
+  taille: {
+    fontSize: 16,
+    left: 170,
+    top: -104,
+    color: "#696969",
+  },
+  CODE: {
+    fontSize: 20,
+    left: 150,
+    top: -90,
+    color: 'red'
 
-}
+  },
+  CODE1: {
+    left: 150,
+    top: -10,
+
+  }
+
 
 });
 
