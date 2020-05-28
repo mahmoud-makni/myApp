@@ -1,8 +1,16 @@
-import React, { Component } from 'react'
-//import payement from "./src/payement/payement";
-import Drawer from './src/Drawer/Drawer';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import store from './src/redux/store/store';
+import { NavigationContainer} from '@react-navigation/native';
+import AuthNavigator from './src/Navigations/Navigation/navigation';
 export default class App extends Component {
-  render() {
-    return (<Drawer/>)
+    render() {
+        return (
+            <Provider store={store}>
+       
+                <AuthNavigator/>
+                <NavigationContainer/> 
+            </Provider>
+        );
+    } 
   }
-}
