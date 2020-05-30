@@ -5,7 +5,8 @@ import Swipeout from 'react-native-swipeout';
 import AddModal from '../../modals/AddModal';
 import EditModal from '../../modals/EditModal';
 import { TextInput } from 'react-native-gesture-handler';
-class FlatListItem extends React.Component {
+import { useNavigation } from '@react-navigation/native';
+class FlatListItemClass extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,7 +20,8 @@ class FlatListItem extends React.Component {
 
     DetailArt = (item) => {
         // this.props.navigation.navigate("ArticleDetail");
-        this.props.parentFlatList.props.secondPropNavigation.navigate("Details", {key: item.key})
+        // this.props.parentFlatList.props.secondPropNavigation.navigate("Details", {key: item.key})
+        this.props.navigation.navigate("Details", {key: item.key})
         console.log('ITEM:: ', item)
 
     }
@@ -36,8 +38,8 @@ class FlatListItem extends React.Component {
 
 
     render() {
-        console.log('secondPropNavigation: ', Object.keys(this.props))
-        console.log('this.props.parentFlatList.props.secondPropNavigation: ', this.props.parentFlatList.props.secondPropNavigation)
+        // console.log('secondPropNavigation: ', Object.keys(this.props))
+        // console.log('this.props.parentFlatList.props.secondPropNavigation: ', this.props.parentFlatList.props.secondPropNavigation)
         // console.log('this.props.index: ', this.props.index)
         // console.log('Accueil Props:t: ', this.props)
         const swipeSettings = {
@@ -94,7 +96,7 @@ class FlatListItem extends React.Component {
                         </Image >
                         <View style={{ flex: 1, flexDirection: 'column', height: 100 }}>
                             <Text style={styles.flatListItem}>{this.props.item.name}</Text>
-                            <Text style={styles.flatListItem}>{this.props.item.Taille}</Text>
+                            <Text style={styles.flatListItem}>{this.props.item.foodDescription}</Text>
                             <Text style={styles.flatListItemP}>Prix:{this.props.item.PrixClient}</Text>
                         </View>
                     </View>
@@ -104,6 +106,11 @@ class FlatListItem extends React.Component {
                 </TouchableOpacity>
             </Swipeout>);
     }
+}
+
+const FlatListItem = (props) => {
+    const navigation = useNavigation()
+    return <FlatListItemClass {...props} navigation={navigation} />
 }
 const styles = StyleSheet.create({
     flatListItem: {
@@ -158,7 +165,7 @@ export default class BasicFlatList extends Component {
                 <View>
                     <TextInput style={{ width: 410, height: 40, top: -3, backgroundColor: '#E1D5D5', borderRadius: 10, }} placeholder="   Rechercher" /></View>
                 <View style={{ backgroundColor: '#FFFFFF', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', height: 64 }}>
-                    <Text style={{ left: -50, color: '#EA66B1', fontSize: 26 }} >LISTE DES ARTICLES</Text>
+                    <Text style={{ left: -30, color: '#EA66B1', fontSize: 25,fontWeight: 'bold' }} >LISTE DES ARTICLES</Text>
                     <TouchableHighlight style={{ marginRight: 10 }} underlayColor='tomato' onPress={this._onPressAdd}  >
                         <Image style={{ width: 35, height: 35 }}
                             source={require('../../icons/icons-add.png')} />

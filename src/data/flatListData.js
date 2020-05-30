@@ -6,7 +6,8 @@ var flatListData = [
         "PrixClient":"30DT",
         "PrixGanger":"5DT",
         "CodeQr":"00001",
-        "Taille":"Taille unique"
+        "Taille":"Taille unique",
+        "providerPhone": "20136213",
     
     },
    
@@ -18,7 +19,8 @@ var flatListData = [
         "PrixClient":"150DT",
         "PrixGanger":"5DT",
         "CodeQr":"00001",
-        "Taille":"Taille M"
+        "Taille":"Taille M",
+        "providerPhone": "20090486",
     
      },
   
@@ -30,7 +32,8 @@ var flatListData = [
         "PrixClient":"90DT",
         "PrixGanger":"5DT",
         "CodeQr":"00001",
-        "Taille":"Taille L/XL"
+        "Taille":"Taille L/XL",
+        "providerPhone": "20136213",
     
     
     },
@@ -41,7 +44,8 @@ var flatListData = [
         "PrixClient":"10DT",
         "PrixGanger":"5DT",
         "CodeQr":"00001",
-        "Taille":"Taille unique"
+        "Taille":"Taille unique",
+        "providerPhone": "20090486",
     
     
     
@@ -55,7 +59,8 @@ var flatListData = [
         "PrixClient":"60DT",
         "PrixGanger":"5DT",
         "CodeQr":"00001",
-        "Taille":"Taille XXL"
+        "Taille":"Taille XXL",
+        "providerPhone": "20136213",
     
     
     
@@ -69,7 +74,8 @@ var flatListData = [
         "PrixClient":"50DT",
         "PrixGanger":"5DT",
         "CodeQr":"00001",
-        "Taille":"Taille M/L/Xl"
+        "Taille":"Taille M/L/Xl",
+        "providerPhone": "20090486",
     
     
     },
@@ -96,7 +102,8 @@ export const users = [
         firstName: "Mahmoud",
         lastName: "Makni",
         password: "010203",
-        photoUrl: "https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg"
+        photoUrl: "https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg",
+        Ville: "Sfax,Tunisia"
     },
     {
         id: "0002",
@@ -104,7 +111,17 @@ export const users = [
         firstName: "Ahmed",
         lastName: "Zribi",
         password: "000111",
-        photoUrl: "https://png.pngtree.com/png-clipart/20190924/original/pngtree-businessman-user-avatar-free-vector-png-image_4827807.jpg"
+        photoUrl: "https://png.pngtree.com/png-clipart/20190924/original/pngtree-businessman-user-avatar-free-vector-png-image_4827807.jpg",
+        Ville: "Sfax,Tunisia"
+    },
+    {
+        id: "0002",
+        phoneNumber: "1",
+        firstName: "ZETA",
+        lastName: "BOX",
+        password: "1",
+        photoUrl: "https://zeta-box.com/images/about-img.jpg",
+        Ville: "Sfax,Tunisia"
     }
 ]
 

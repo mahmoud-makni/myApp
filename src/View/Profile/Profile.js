@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { dispatchNumber } from '../../redux/actions';
 import { dispatchPassword } from '../../redux/actions';
 import LoginReducer from '../../redux/reducers/LoginReducer';
+import QRCode from 'react-native-qrcode-svg';
+
 
 class Profile extends Component {
   constructor(props) {
@@ -29,7 +31,14 @@ class Profile extends Component {
             <Text style={styles.name}>{this.props.userFromStore.firstName} {this.props.userFromStore.lastName}</Text>
             <Text style={styles.info}>Mon numero portable </Text>
             <Text style={styles.description}>{this.props.userFromStore.phoneNumber}</Text>
-
+           <Text style={styles.add}> Adresse</Text>
+           <Text style={styles.ville}>{this.props.userFromStore.Ville}</Text>
+           <Text style={styles.CODE}> CODE-QR </Text>
+        <View style={{marginTop: 20, alignItems: 'center' }}>
+          <QRCode
+            value={this.props.userFromStore.phoneNumber}  
+          />
+        </View>
        
 
           </View>
@@ -42,7 +51,7 @@ class Profile extends Component {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "#00BFFF",
-    height: 200,
+    height: 150,
   },
   avatar: {
     width: 130,
@@ -53,12 +62,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'center',
     position: 'absolute',
-    marginTop: 70
+    marginTop: 20
   },
   name: {
     fontSize: 22,
     color: "#FFFFFF",
     fontWeight: '600',
+    top:-10
   },
   body: {
     marginTop: 40,
@@ -77,15 +87,36 @@ const styles = StyleSheet.create({
   },
   info: {
     fontSize: 16,
-    color: "#00BFFF",
+    color: "#696969",
+    marginTop:10
 
   },
   description: {
+    fontSize: 16,
+    color: "#00BFFF",
+    marginTop: 10,
+    textAlign: 'center'
+  },
+  add:{
     fontSize: 16,
     color: "#696969",
     marginTop: 10,
     textAlign: 'center'
   },
+  ville:{
+    fontSize: 16,
+    color: "#00BFFF",
+    marginTop: 10,
+    textAlign: 'center'
+
+  },
+  CODE:{
+    fontSize: 16,
+    color: "#696969",
+    marginTop: 20,
+    textAlign: 'center',
+  }
+
 });
 
 

@@ -13,7 +13,8 @@ export default class AddModal extends Component {
             newFoodDescription: '',
             PrixClient:'',
             PrixGanger:'',
-            CodeQr:'',
+            Taille:'',
+            providerPhone:'',
         }; }
 showAddModal = () => {
         this.refs.myModal.open();
@@ -23,26 +24,34 @@ generateKey = (numberOfCharacters) => {
     }
 render() {
         return (
-<Modal ref={"myModal"} style={{ justifyContent: 'center', borderRadius: Platform.OS === 'ios' ? 30 : 0, shadowRadius: 10, width: screen.width - 120,height: 400 }}
+<Modal ref={"myModal"} style={{ justifyContent: 'center', borderRadius: Platform.OS === 'ios' ? 30 : 0, shadowRadius: 10, width: screen.width - 100,height: 420 }}
                 position='center'
                 backdrop={true}
                 onClosed={() => {
                     // alert("Modal closed");
                 }} >
   <Text style={{fontSize: 16, fontWeight: 'bold',textAlign: 'center', marginTop: 40 }}>Ajouter un article</Text>
+ 
+ 
+ 
   <TextInput style={{ height: 40,borderBottomColor: 'gray',marginLeft: 30, marginRight: 30, marginTop: 20, marginBottom: 10,borderBottomWidth: 1 }}           
                 onChangeText={(text) => this.setState({ newFoodName: text })}
                 placeholder="Enter Nom de l'article"
                 value={this.state.newFoodName}    />
+ 
+ 
   <TextInput style={{height: 40,borderBottomColor: 'gray',marginLeft: 30,marginRight: 30,marginTop: 10,marginBottom: 20,  borderBottomWidth: 1 }}  
                 onChangeText={(text) => this.setState({ newFoodDescription: text })}
                 placeholder="Enter votre description"
                 value={this.state.newFoodDescription} />
 
+
 <TextInput style={{height: 40,borderBottomColor: 'gray',marginLeft: 30,marginRight: 30,marginTop: 10,marginBottom: 20,  borderBottomWidth: 1 }}  
                 onChangeText={(text) => this.setState({ PrixClient: text })}
                 placeholder="Enter votre Prix"
                 value={this.state.PrixClient} />   
+ 
+ 
  <TextInput style={{height: 40,borderBottomColor: 'gray',marginLeft: 30,marginRight: 30,marginTop: 10,marginBottom: 20,  borderBottomWidth: 1 }}  
                 onChangeText={(text) => this.setState({PrixGanger: text })}
                 placeholder="Enter votre Prix gagner"
@@ -50,9 +59,9 @@ render() {
 
 
 <TextInput style={{height: 40,borderBottomColor: 'gray',marginLeft: 30,marginRight: 30,marginTop: 10,marginBottom: 20,  borderBottomWidth: 1 }}  
-                onChangeText={(text) => this.setState({CodeQr: text })}
-                placeholder="Enter votre CodeQr"
-                value={this.state.CodeQr} />             
+                onChangeText={(text) => this.setState({providerPhone: text })}
+                placeholder="Enter num de fornusseur "
+                value={this.state.providerPhone} />             
                 
                 
     <Button style={{ fontSize: 18, color: 'white' }}containerStyle={{ padding: 8,marginLeft: 70, marginRight: 70, height: 40, borderRadius: 6, backgroundColor: '#F187DF' }}
@@ -65,11 +74,12 @@ render() {
  const newKey = this.generateKey(24);
  const newFood = { key: newKey,
                    name: this.state.newFoodName,
-                   imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/64/Foods_%28cropped%29.jpg",
+                   imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/47/Shirt.jpg",
                    foodDescription: this.state.newFoodDescription ,
                    PrixClient: this.state.PrixClient,
                    PrixGanger:this.state.PrixGanger,
-                   CodeQr:this.state.CodeQr,
+                   Taille:this.state.Taille,
+                   providerPhone:this.state.providerPhone,
                    };    
 
             flatListData.push(newFood);    

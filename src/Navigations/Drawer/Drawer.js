@@ -29,11 +29,14 @@ const DrawerNav = createDrawerNavigator();
         drawerType={'slide'}
         initialRouteName="Acceuil">
 
-        <DrawerNav.Screen  name={this.props.userFromStore.firstName + ' ' + this.props.userFromStore.lastName}  component={() => <></>} />
+        <DrawerNav.Screen  name={this.props.userFromStore.firstName + ' ' + this.props.userFromStore.lastName} 
+        
+         component={() => <></>} />
        
 
-        <DrawerNav.Screen name="Acceuil" component={() =>  <Acceuil secondPropNavigation={this.props.navigationProp} />} />
-       
+        <DrawerNav.Screen name="Acceuil" component={() =>  <Acceuil />} />
+      
+
 
         <DrawerNav.Screen options={
           { drawerLabe1: 'Ajouter un dépôt' },

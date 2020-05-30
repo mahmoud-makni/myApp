@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Stack } from 'rn-gnavigator';
 
 class Test extends React.Component {
     render() {

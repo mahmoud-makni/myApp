@@ -4,6 +4,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Profile from '../../View/Profile/Profile';
 import Drawer from '../Drawer/Drawer';
+import { Icon } from 'react-native-elements'
+
+
 const { width } = Dimensions.get("window");
 const Tab = createBottomTabNavigator();
 export default class MyTabs extends React.Component {
@@ -66,11 +69,11 @@ handleSlide = type => {
               if (route.name === 'Acceuil') {
                 iconName = 'home'
               } else if (route.name === 'Profile') {
-                iconName = 'home' 
+                iconName = 'person' 
               }
   
               // You can return any component that you like here!
-              return <Ionicons name={'home'} size={size} color={color} />;
+              return <Icon name={iconName}  color={'#00aced'} />;
             },
           })}
           tabBarOptions={{
@@ -82,7 +85,9 @@ handleSlide = type => {
 
           }}
         >
-          <Tab.Screen name="Acceuil" component={() => <Drawer navigationProp={this.props.navigation} />} />
+          <Tab.Screen name="Acceuil" component={Drawer} />
+
+          {/* <Tab.Screen name="Acceuil" component={() => <Drawer navigationProp={this.props.navigation} />} /> */}
           <Tab.Screen name="Profile" component={Profile} />
         </Tab.Navigator>
   

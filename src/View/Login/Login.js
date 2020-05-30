@@ -58,7 +58,8 @@ Inscriptioncréervotrecompte = () =>{
 <Text style={styles.welcome}>BIENVENUE {"\n"}CONNECTER A VOTRE COMPTE</Text>
 <Text style={styles.Num} >Entrez votre mot de passe</Text>
 
-<TextInput style={styles.rect1} placeholder=" Entrer votre mot de passe ici " 
+<TextInput style={styles.rect1} placeholder="Entrer votre mot de passse"
+      secureTextEntry
       onChangeText={text => this.setState({password: text})}
       ref={input => {
       this.password = input;
