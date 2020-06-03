@@ -55,7 +55,8 @@ Inscriptioncréervotrecompte = () =>{
 
    return (
    <View style={styles.container}>
-<Text style={styles.welcome}>BIENVENUE {"\n"}CONNECTER A VOTRE COMPTE</Text>
+ <Image style={{ width: 150, height: 110 ,left:140,top:40}}
+                            source={require('../../icons/logo.png')} />
 <Text style={styles.Num} >Entrez votre mot de passe</Text>
 
 <TextInput style={styles.rect1} placeholder="Entrer votre mot de passse"
@@ -75,17 +76,9 @@ Inscriptioncréervotrecompte = () =>{
   container: {
     flex: 1,
     backgroundColor: "#FFFFFF" },
-    welcome: {
-      fontSize: 26,
-      textAlign: "center",
-      margin: 10,
-      top: 70,
-      left: 8,
-      color: "#F187DF",
-      position: "absolute"},
     Num:{
       fontSize:17,
-      top:230,
+      top:100,
       left:90,
       color:"#707070"},
     rect1: {
@@ -93,7 +86,7 @@ Inscriptioncréervotrecompte = () =>{
         height: 50,
         backgroundColor: "#E1D5D5",
         borderRadius: 100,
-        marginTop: 250,
+        marginTop: 110,
         marginLeft: 90
         },
     Ins: {

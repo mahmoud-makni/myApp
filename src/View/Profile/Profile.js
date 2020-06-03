@@ -33,6 +33,8 @@ class Profile extends Component {
             <Text style={styles.description}>{this.props.userFromStore.phoneNumber}</Text>
            <Text style={styles.add}> Adresse</Text>
            <Text style={styles.ville}>{this.props.userFromStore.Ville}</Text>
+           <Text>Email : {this.props.userFromStore.Email}</Text>
+
            <Text style={styles.CODE}> CODE-QR </Text>
         <View style={{marginTop: 20, alignItems: 'center' }}>
           <QRCode

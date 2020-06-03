@@ -6,6 +6,8 @@ import AddModal from '../../modals/AddModal';
 import EditModal from '../../modals/EditModal';
 import { TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+
 class FlatListItemClass extends React.Component {
     constructor(props) {
         super(props);
@@ -57,27 +59,29 @@ class FlatListItemClass extends React.Component {
                     onPress: () => {
                         // alert("Update");
                         this.props.parentFlatList.refs.editModal.showEditModal(flatListData[this.props.index], this);
-                    }, text: 'Modifier', type: 'primary'
+                    }, text: 'Modifier', type: 'primary', backgroundColor:'#00BFFF'
                 },
 
                 {
                     onPress: () => {
                         const deletingRow = this.state.activeRowKey;
-                        Alert.alert('Attentions', 'Etes-vous sûr que vous voulez supprimer?',
+                        Alert.alert('Attentions', 'Cette article est confirmer de vendu!!',
                             [
                                 { text: 'Non', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
                                 {
                                     text: 'Oui', onPress: () => {
-                                        flatListData.splice(this.props.index, 1);
+                                        this.props.dispatch({type: 'ARTICLE_SALE'})
+                                        flatListData.splice(this.props.index, 1); 
                                         //Refresh FlatList ! 
                                         this.props.parentFlatList.refreshFlatList(deletingRow);
+
                                     }
                                 },
                             ],
                             { cancelable: true }
                         );
                     },
-                    text: 'Supprimer', type: 'delete'
+                    text: 'Vendu', type: 'delete',backgroundColor:'#02FC3A'
                 }
             ],
             rowId: this.props.index,
@@ -110,7 +114,8 @@ class FlatListItemClass extends React.Component {
 
 const FlatListItem = (props) => {
     const navigation = useNavigation()
-    return <FlatListItemClass {...props} navigation={navigation} />
+    const dispatch = useDispatch()
+    return <FlatListItemClass {...props} navigation={navigation} dispatch={dispatch} />
 }
 const styles = StyleSheet.create({
     flatListItem: {

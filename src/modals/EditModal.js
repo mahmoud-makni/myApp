@@ -41,9 +41,7 @@ export default class EditModal extends Component {
                 }}
             >
                 <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'center', marginTop: 40 }}>Nom de l'article</Text>
- <TextInput style={{
-                    height: 40, borderBottomColor: 'gray', marginLeft: 30, marginRight: 30, marginTop: 20, marginBottom: 10, borderBottomWidth: 1
-                }}
+ <TextInput style={{ height: 40, borderBottomColor: 'gray', marginLeft: 30, marginRight: 30, marginTop: 20, marginBottom: 10, borderBottomWidth: 1  }}
                     onChangeText={(text) => this.setState({ foodName: text })}
                     placeholder="Enter votre Nom d'article"
                     value={this.state.foodName} />
@@ -61,14 +59,16 @@ export default class EditModal extends Component {
                     placeholder="Enter votre Prix gagner"
                     value={this.state.PrixGanger} />              
                
- <TextInput style={{ height: 40, borderBottomColor: 'gray', marginLeft: 30, marginRight: 30, marginTop: 10, marginBottom: 20, borderBottomWidth: 1 }}
-                    onChangeText={(text) => this.setState({ CodeQr: text })}
-                    placeholder="Enter votre CodeQr"
-                    value={this.state.CodeQr} />               
+ 
+<TextInput style={{height: 40,borderBottomColor: 'gray',marginLeft: 30,marginRight: 30,marginTop: 10,marginBottom: 20,  borderBottomWidth: 1 }}  
+                onChangeText={(text) => this.setState({providerPhone: text })}
+                placeholder="Enter num de fornusseur "
+                value={this.state.providerPhone} />             
+                             
                
                
                
-                <Button style={{ fontSize: 18, color: 'white' }} containerStyle={{ padding: 8, marginLeft: 70, marginRight: 70, height: 40, borderRadius: 6, backgroundColor: 'mediumseagreen' }}
+                <Button style={{ fontSize: 18, color: 'white' }} containerStyle={{ padding: 8, marginLeft: 70, marginRight: 70, height: 40, borderRadius: 6, backgroundColor:'#02FC3A' }}
                     onPress={() => {
                         if (this.state.foodName.length == 0 || this.state.foodDescription.length == 0) {
                             alert("Vous inserer le nom ou la descriptions");
@@ -83,7 +83,7 @@ export default class EditModal extends Component {
                         flatListData[foundIndex].foodDescription = this.state.foodDescription;
                         flatListData[foundIndex].PrixClient=this.state.PrixClient;
                         flatListData[foundIndex].PrixGanger=this.state.PrixGanger;
-                        flatListData[foundIndex].CodeQr=this.state.CodeQr;
+                        flatListData[foundIndex].providerPhone=this.state.providerPhone;
                         //Refresh flatlist item
                      //   this.state.flatlistItem.refreshFlatListItem();
                         this.setState({ foodName: '',foodDescription:'',PrixClient:''})

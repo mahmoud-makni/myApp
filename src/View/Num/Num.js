@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
 import {dispatchNumber} from '../../redux/actions';
-import { StyleSheet, View,Text, TextInput, Keyboard,TouchableHighlight,Button } from "react-native";
+import { StyleSheet, View,Text, TextInput, Keyboard,TouchableHighlight,Button,Image } from "react-native";
 import {users} from '../../data/flatListData';
-
 
 class Num extends React.Component {
   constructor(props) {
@@ -43,6 +42,8 @@ render() {
  return (
 <View style={styles.container}>
   <View style={{marginTop:this.state.marginTop}}>
+  <Image style={{ width: 150, height: 110, left:140,top:0 }}
+                            source={require('../../icons/logo.png')} />
     <Text style={styles.welcome}>VOTRE IDENTIFIANT{"\n"}POUR NOUS REJOINDRE</Text>
     <Text style={styles.dec}>Votre numéro de téléphone et le mot depasse {"\n"}seront utilisés pour vous connecter à votre compte.</Text>
     <Text style={styles.Num}>Veuillez saisir votre numéro de téléphone</Text>
@@ -69,23 +70,24 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
   },
   welcome: {
-    fontSize: 26,
+    fontSize: 22,
     textAlign: "center",
     margin: 35,
     left: 5,
     color: "#F187DF",
+    top: -10,
   },
   dec: {
     fontSize: 14,
     left: 18,
     color: "#707070",
-    top: 30
+    top: 0
   },
   Num: {
     fontSize: 18,
     left: 20,
     color: "#707070",
-    top: 60
+    top: 30
   },
   rect1: {
     width: 240,
@@ -93,33 +95,23 @@ const styles = StyleSheet.create({
     backgroundColor: "#E1D5D5",
     borderRadius: 150,
     marginLeft: 90,
-    marginTop: 80
+    marginTop: 40
   },
   fixToText: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     top:70,
     left:160,
-    
-
-    
-
   }
 
 });
 const mapStateToProps = state => {
   return {loginDetails: state.loginDetails};
-  
 };
-
-
-
 const mapDispatchToProps = dispatch => {
   return {
     isLogged: state => {
-      dispatch(dispatchNumber(state));
-      
-    
+      dispatch(dispatchNumber(state)); 
     },
   };
 };

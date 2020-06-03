@@ -7,7 +7,6 @@ import Ajouter from '../../View/Ajouter/Ajouter';
 import notification from '../../View/notification/notification';
 import payement from '../../View/payement/payement';
 import parametre from '../../View/parametre/parametre';
-import Modestore from '../../View/store/store';
 import { connect } from 'react-redux';
 
 const DrawerNav = createDrawerNavigator();
@@ -36,12 +35,6 @@ const DrawerNav = createDrawerNavigator();
 
         <DrawerNav.Screen name="Acceuil" component={() =>  <Acceuil />} />
       
-
-
-        <DrawerNav.Screen options={
-          { drawerLabe1: 'Ajouter un dépôt' },
-          { drawerLabelStyle: {  } }}
-          name="Ajouter un dépôt" component={Ajouter} />
       
       
         <DrawerNav.Screen options={
@@ -62,10 +55,10 @@ const DrawerNav = createDrawerNavigator();
           name="Notification" component={notification} />
 
 
-        <DrawerNav.Screen options={
-          { drawerLabe5: 'Mode Store' },
+ <DrawerNav.Screen options={
+          { drawerLabe1: 'Ajouter un dépôt' },
           { drawerLabelStyle: {  } }}
-          name="Mode Store" component={Modestore} />
+          name="Scanner" component={Ajouter} /> 
        
       </DrawerNav.Navigator>)
   }

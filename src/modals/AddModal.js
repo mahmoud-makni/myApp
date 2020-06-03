@@ -14,7 +14,7 @@ export default class AddModal extends Component {
             PrixClient:'',
             PrixGanger:'',
             Taille:'',
-            providerPhone:'',
+            providerPhone:'', 
         }; }
 showAddModal = () => {
         this.refs.myModal.open();
@@ -64,7 +64,7 @@ render() {
                 value={this.state.providerPhone} />             
                 
                 
-    <Button style={{ fontSize: 18, color: 'white' }}containerStyle={{ padding: 8,marginLeft: 70, marginRight: 70, height: 40, borderRadius: 6, backgroundColor: '#F187DF' }}
+    <Button style={{ fontSize: 18, color: 'white' }}containerStyle={{ padding: 8,marginLeft: 70, marginRight: 70, height: 40, borderRadius: 6, backgroundColor:'#02FC3A' }}
                 onPress={() => {
      if (this.state.newFoodName.length == 0 || this.state.newFoodDescription.length == 0) {
                 alert("Votre article est bien ajouter");

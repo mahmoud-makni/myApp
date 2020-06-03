@@ -1,59 +1,63 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
+import { platform, StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
+import ImagePicker from 'react-native-image-picker';
+const options = {
+  title: 'my pic app',
+  takePhotoButtonTitle: 'Prendre un photo avec votre camera',
+  chooserFromLibraryButtonTitle: 'Ouvrir votre gallerie',
+}
 
-function Ajouter(props) {
-  return (
-    <View style={styles.container}>
-        <Text style={styles.ajouterUnDepot}>Ajouter un depot</Text>
-        <Text style={styles.listeDesArticles}> Liste des article ajouter </Text>
-        <TextInput style={styles.rect}/>
-        <Text style={styles.listeDesClients}>liste des clients ajouter </Text>
-        <TextInput style={styles.rect1}/>
-   
-    </View>
-  );
+export default class Ajouter extends Component<Props> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      avatarSource: null
+    }
+  }
+  myfun = () => {
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      }
+      else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      }
+      else {
+        const source = { uri: response.uri };
+        // You can also display the image using data:
+        // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+        this.setState({
+          avatarSource: source
+        });
+      }
+    });
+  }
+  render() {
+    return (
+      <View style={StyleSheet.container}>
+        <Text style={StyleSheet.welcome}>Scanner le CODEQR</Text>
+        <Image source={this.avatarSource} style={{ width: '100%', height: 300, margin: 10 }} />
+        <TouchableOpacity style={{ backgroundColor: '#00BFFF', margin: 10, padding: 10 }}
+          onPress={this.myfun}>
+          <Text style={{ color: '#FFFFFF',backgroundColor:'#00BFFF' }}>select Image</Text>
+        </TouchableOpacity>
+      </View>);
+  }
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#FFFFFF'
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
-  ajouterUnDepot: {
-    color: "rgba(255,0,229,1)",
-    fontSize: 20,
-    fontFamily: "roboto-regular",
-    marginTop: 0,
+  welcome: {
+    fontSize:24,
+    left:100,
+   
+    color: "#00BFFF",
+    
   },
-  listeDesArticles: {
-    color: "#707070",
-    fontSize: 16,
-    fontFamily: "roboto-regular",
-    marginTop: 20,
-    marginLeft: 20
-  },
+})
 
-  rect: {
-    width: 200,
-    height: 80,
-    backgroundColor: "rgba(230, 230, 230,1)",
-    marginTop: 30,
-    marginLeft: 30
-  },
-  listeDesClients: {
-    color: "#707070",
-    fontSize: 16,
-    fontFamily: "roboto-regular",
-    marginTop: 20,
-    marginLeft: 20
-  },
-  rect1: {
-    width: 200,
-    height: 80,
-    backgroundColor: "rgba(230, 230, 230,1)",
-    marginTop: 30,
-    marginLeft: 30
-  },
-
-});
-export default Ajouter;

@@ -10,14 +10,14 @@ const DATA = [
     Etat:'1',
   },
   { id: 2,
-    name: 'Amal',
+    name: 'ZETA',
     Article: 'Pantalon',
     Prix: '60DT',
     Prixgagner :'15DT',
     Etat:'0',
   },
   { id: 3,
-    name: 'Mohamed',
+    name: 'Ahmed',
     Article: 'Sac',
     Prix :'40DT',
     Prixgagner :'10DT',
@@ -57,7 +57,7 @@ const DATA = [
 function payement(props) {
   return (
     <View style={styles.MainContainer}>
-    <Text style={{left:0,color:'#EA66B1',fontSize:22}}>Payement des factures</Text>
+    <Text style={{left:0,color:'#EA66B1',fontSize:22,fontWeight: 'bold' }}>Payement des factures</Text>
 
                <Text style={{left:80,top:5,color:'#454545',fontSize:13}}>Somme des factures : 200DT </Text>
                <Text style={{left:80,top:5,color:'#454545',fontSize:13}}>Somme des ganger : 75DT</Text>
@@ -69,7 +69,9 @@ function payement(props) {
              elevation: 5, //hedhi ma temchych aala emulateur kn aala tel
              height: '5%',
              padding:'8%'  }}>
-    <Text>{item.name}{'\t'}{item.Article}{'\t'} {item.Prix} {'\t'}{item.Prixgagner}{'\t'}{item.Etat} </Text>
+    <Text style={styles.name}>--{item.name}{'\t'}  {item.Article} </Text> 
+    <Text style={styles.prix}> Prix commerciale :  {item.Prix}{'\t'} Prix ganger :  {item.Prixgagner}</Text> 
+    <Text style={styles.etat}> Etat : {item.Etat} </Text>
  </View>
          )}
  keyExtractor={item => item.id.toString()}  />
@@ -92,12 +94,26 @@ S:{flex: 1,
 
 },
 Somm1:{
-  fontSize: 25,
+  fontSize: 27,
 },
 Somm2:{
-  fontSize: 25,
+  fontSize: 27,
+},
+name:{
+color:"#02FCE5",
+fontSize:14,
+},
 
-}
+prix:{
+  color:"#FC2402",
+fontSize:14,
+},
+etat:{
+  color:"#7BFC02",
+  fontSize:14,
+
+},
+
 });
 
 export default payement;
