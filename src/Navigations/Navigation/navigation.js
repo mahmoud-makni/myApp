@@ -47,10 +47,16 @@ const DetailsComponent = (props) => {
 
         <Text style={styles.taille}> {relatedArticle.Taille}</Text>
 
-        <Text style={styles.CODE}> CODE-QR </Text>
-        <View style={{marginTop: -80, alignItems: 'center'}}>
+        <Text style={styles.CODE}> CODE-QR ARTICLE</Text>
+        <View style={{marginTop: -80, marginLeft:30}}>
           <QRCode
             value={relatedArticle.key}
+          />
+        </View>
+        <Text style={{top:-137,fontSize:17,  color: 'rgb(0,122,255)',left:190}}> CODE-QR FOURNNISEUR</Text>
+        <View style={{marginTop: -125, marginLeft:250}}>
+          <QRCode
+            value={relatedArticle.providerPhone}
           />
         </View>
       </View>
@@ -119,8 +125,8 @@ const styles = StyleSheet.create({
     color: "#696969",
   },
   CODE: {
-    fontSize: 20,
-    left: 150,
+    fontSize: 18,
+    left: 0,
     top: -90,
     color: 'red'
 
